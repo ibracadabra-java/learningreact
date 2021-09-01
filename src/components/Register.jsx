@@ -1,65 +1,11 @@
-import React, { Fragment,Component } from 'react'
-import './styles/Register.css'
-import {Link} from 'react-router-dom'
+import React, { Fragment } from 'react'
 import {RegisterForm} from "./RegisterForm"
+import {Link} from 'react-router-dom'
 
-export  class Register extends Component {
-    state = {
-        form:{
-            fullName:""
-        },
-        loading:false,
-        user:{   
-            result:{
-                fullName:""
-            }        
-        },
-        fullname:""
-    }
-    handleSubmit = async e =>{
-        this.setState({
-            loading:true
-        })
-        e.preventDefault()
-        try {            
-            let config = {
-                method : 'POST',
-                headers:{
-                    'Accept':'application/json',
-                    'Content-type':'application/json'
-                },
-                body:JSON.stringify(this.state.form)
-            }
-            let res = await fetch('https://localhost:44384/api/account/register',config)
-            let json = await res.json()
-            if(json)
-            this.setState ({
-                fullname:this.state.form.fullName
-            })            
-            this.setState({
-                loading:false
-            })
-            this.props.history.push('/home',this.state)
-        } catch (error) {
-            this.setState({
-                loading:false
-            })
-        }
-        console.log(this.state)
-    }
-    handleChange = e =>{
-        this.setState({
-            form:{
-                ...this.state.form,
-            [e.target.name]:e.target.value
-        }
-        })
-    }
-    render() {
-        
-        return (
-            <Fragment>      
-        <div className="container">
+export default function Register({form,onSubmit,onChange}) {
+    return (
+        <Fragment>
+           <div className="container">
         <div className="card o-hidden border-0 shadow-lg my-5">  
         <div className="card-body p-0">
         <div className="row">
@@ -69,8 +15,8 @@ export  class Register extends Component {
         <div className="text-center">
                                 <h1 className="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
-                               <RegisterForm onSubmit={this.handleSubmit} onChange={this.handleChange}
-                               form = {this.state.form}/>
+                               <RegisterForm onSubmit={onSubmit} onChange={onChange}
+                               form = {form}/>
                             <hr/>
                             <div className="text-center">
                                 <Link className="small" to="forgotpassword">Forgot Password?</Link>
@@ -83,8 +29,7 @@ export  class Register extends Component {
         </div>
             </div>                 
         </div>
-        </div>    
-        </Fragment>  
-        )
-    }
+        </div>     
+        </Fragment>
+    )
 }
