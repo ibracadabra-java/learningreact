@@ -1,0 +1,14 @@
+C:\Users\Raul\Documents\Proyectos\NTSprint\React+netcore\netcore-api-main\APICore\APICore.Common\bin\Debug\net5.0\APICore.Common.deps.json
+C:\Users\Raul\Documents\Proyectos\NTSprint\React+netcore\netcore-api-main\APICore\APICore.Common\bin\Debug\net5.0\APICore.Common.dll
+C:\Users\Raul\Documents\Proyectos\NTSprint\React+netcore\netcore-api-main\APICore\APICore.Common\bin\Debug\net5.0\ref\APICore.Common.dll
+C:\Users\Raul\Documents\Proyectos\NTSprint\React+netcore\netcore-api-main\APICore\APICore.Common\bin\Debug\net5.0\APICore.Common.pdb
+C:\Users\Raul\Documents\Proyectos\NTSprint\React+netcore\netcore-api-main\APICore\APICore.Common\bin\Debug\net5.0\APICore.Common.xml
+C:\Users\Raul\Documents\Proyectos\NTSprint\React+netcore\netcore-api-main\APICore\APICore.Common\obj\Debug\net5.0\APICore.Common.csprojAssemblyReference.cache
+C:\Users\Raul\Documents\Proyectos\NTSprint\React+netcore\netcore-api-main\APICore\APICore.Common\obj\Debug\net5.0\APICore.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Raul\Documents\Proyectos\NTSprint\React+netcore\netcore-api-main\APICore\APICore.Common\obj\Debug\net5.0\APICore.Common.AssemblyInfoInputs.cache
+C:\Users\Raul\Documents\Proyectos\NTSprint\React+netcore\netcore-api-main\APICore\APICore.Common\obj\Debug\net5.0\APICore.Common.AssemblyInfo.cs
+C:\Users\Raul\Documents\Proyectos\NTSprint\React+netcore\netcore-api-main\APICore\APICore.Common\obj\Debug\net5.0\APICore.Common.csproj.CoreCompileInputs.cache
+C:\Users\Raul\Documents\Proyectos\NTSprint\React+netcore\netcore-api-main\APICore\APICore.Common\obj\Debug\net5.0\APICore.Common.dll
+C:\Users\Raul\Documents\Proyectos\NTSprint\React+netcore\netcore-api-main\APICore\APICore.Common\obj\Debug\net5.0\ref\APICore.Common.dll
+C:\Users\Raul\Documents\Proyectos\NTSprint\React+netcore\netcore-api-main\APICore\APICore.Common\obj\Debug\net5.0\APICore.Common.xml
+C:\Users\Raul\Documents\Proyectos\NTSprint\React+netcore\netcore-api-main\APICore\APICore.Common\obj\Debug\net5.0\APICore.Common.pdb

@@ -1,5 +1,4 @@
 import React from 'react'
-import './styles/Register.css'
 import {Link} from 'react-router-dom'
 
 export function ForgotPassword() {

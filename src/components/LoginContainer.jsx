@@ -1,9 +1,9 @@
 import React,{useState} from 'react'
-import './styles/Register.css'
 import {Loading} from './Loading'
 import Login from './Login'
+import "./styles/Register.css"
 
-export function LoginContainer({history}) {
+export function LoginContainer() {
     const [form,setForm] = useState({})
     const [loading,setLoading] = useState(false)
     const [nombreCompleto,setFullname] = useState()
@@ -26,7 +26,7 @@ export function LoginContainer({history}) {
             setForm(json)
             setLoading(false)  
             console.log(nombreCompleto)          
-            history.push('/home',json.result.fullName)
+            /*history.push('/home',json.result.fullName)*/
         } catch (error) {
             setLoading(false)
         }
