@@ -19,9 +19,9 @@ const columns = [
     },
     {
       field: 'user',
-      headerName: 'Age',
+      headerName: 'User Name',
       type: 'number',
-      width: 110,
+      width: 150,
       editable: true,
     }
   ];
