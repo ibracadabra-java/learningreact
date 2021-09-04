@@ -26,7 +26,7 @@ export function Listas() {
     Agreggar Tarea
 </ListItemText>
              </ListItem>
-             <ListItem button component="a" href="/Account">
+             <ListItem button component={NavLink} to="/dashboard/user">
 <ListItemIcon>
     <AssignmentIndIcon/>
 </ListItemIcon>

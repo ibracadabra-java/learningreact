@@ -1,6 +1,7 @@
-import React, { Fragment } from 'react'
+import React, { Fragment,useEffect } from 'react'
 import { makeStyles } from '@material-ui/core'
 import {DataGrid } from '@material-ui/data-grid'
+import { useState } from 'react';
 const useStyle = makeStyles({
 
 })
@@ -26,20 +27,25 @@ const columns = [
     }
   ];
   
-  const rows = [
-    {id:1,name: 'Example Task 1', state: 'Done', user: 'Raul' },
-    {id:2,name: 'Example Task 2', state: 'Pending', user: 'Raul' },
-    {id:3,name: 'Example Task 3', state: 'Pending', user: 'Raul' },
-    {id:4,name: 'Example Task 4', state: 'Pending', user: 'Raul' },
-    {id:5,name: 'Example Task 5', state: 'Pending', user: 'Raul' },
-    {id:6,name: 'Example Task 6', state: 'Pending', user: 'Raul' },
-    {id:7,name: 'Example Task 7', state: 'Pending', user: 'Raul' },
-    {id:8,name: 'Example Task 8', state: 'Pending', user: 'Raul' },
-    {id:9,name: 'Example Task 9', state: 'Pending', user: 'Raul' },
-  ];
+  
   
 
 export function Task() {
+  const [tasks,setTasks] = useState([])
+  useEffect(() => {
+    console.log("useEffect")
+    getTask()
+  },[])
+  const getTask = async() =>{
+    const data =await fetch('https://localhost:44384/api/Task/Get')
+    const task = await data.json()
+    setTasks(task)
+    console.log(task)
+  }
+  const rows = tasks.map(item=>(
+      {id:item.id,name: item.name, state: item.state, user: item.user.fullName }
+    ))
+  
     return (
         <div style={{ height: 400, width: '100%' }}>
             <DataGrid

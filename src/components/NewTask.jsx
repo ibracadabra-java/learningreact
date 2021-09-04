@@ -1,4 +1,4 @@
-import {React,useState} from 'react'
+import {React,useState,Fragment} from 'react'
 import {
     Box,
     Button,
@@ -7,38 +7,75 @@ import {
     CardHeader,
     Divider,
     Grid,
-    TextField
+    TextField,
+    MenuItem 
   } from '@material-ui/core';
+  import {SnackBarAlert} from './SnackBarAlert'
   
   const states = [
     {
-      value: '1',
+      value: true,
       label: 'Done'
-    },
+    },    
     {
-      value: '0',
-      label: 'Failed'
-    },
-    {
-      value: '2',
+      value: false,
       label: 'Pending'
     }
   ];
 
 export function NewTask(props) {
+    const[open,setOpen] = useState(false)
+    const[usernametask,setUsername]=useState("UserTest")
     const [values, setValues] = useState({
-        taskname: 'Taskexample',
-        username: 'Raul',
+      Name: '',
+      User: '',
         state: 'Done'        
       });
+      const[message,setMessage]=useState("Ha ocurrido un error")      
+      const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
     
+        setOpen(false);
+      };
+      
+      const handleSubmit = async e =>{        
+         e.preventDefault()
+         try {
+             let config = {
+                 method : 'POST',
+                 headers:{
+                     'Accept':'application/json',
+                     'Content-type':'application/json'
+                 },
+                 body:JSON.stringify(values)
+             }
+             let res = await fetch('https://localhost:44384/api/Task/Create',config)
+             let json = await res.json() 
+
+             setMessage(json)
+             setOpen(true)                                    
+                console.log(json)
+              setValues({
+                Name: '',
+                User: '',
+                  state: 'Done'        
+                })
+         } catch (error) {
+          console.log(error)
+         }         
+     }
       const handleChange = (event) => {
         setValues({
           ...values,
           [event.target.name]: event.target.value
         });
-      };
+        setUsername(event.target.value);
+      };     
     return (        
+      <>
+      <SnackBarAlert open={open} onClose={handleClose} message={message}/>   
             <form
       autoComplete="off"
       noValidate
@@ -64,7 +101,7 @@ export function NewTask(props) {
                 fullWidth
                 helperText="Please specify the Name Task"
                 label="Name Task"
-                name="taskname"
+                name="Name"
                 onChange={handleChange}
                 required
                 value={values.taskname}
@@ -78,13 +115,21 @@ export function NewTask(props) {
             >
               <TextField
                 fullWidth
+                select
                 label="User name"
-                name="username"
+                name="User"
                 onChange={handleChange}
                 required
-                value={values.username}
+                value={usernametask}
                 variant="outlined"
-              />
+              >
+                <MenuItem key={1} value={1}>
+              {"Raul Meno"}
+            </MenuItem>
+            <MenuItem key={2} value={2}>
+              {"Alex Meno"}
+            </MenuItem>
+                </TextField>
             </Grid>            
             <Grid
               item
@@ -125,11 +170,13 @@ export function NewTask(props) {
           <Button
             color="primary"
             variant="contained"
+            onClick={handleSubmit}
           >
             Add Task
           </Button>
         </Box>
       </Card>
-    </form>        
+    </form>   
+    </>     
     )
 }

@@ -238,5 +238,13 @@ namespace APICore.API.Controllers
 
             return Ok();
         }
+        [HttpGet]
+        [Route("getuser")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetUser(int id)
+        {
+            var user = await _accountService.GetUserAsync(id);
+            return Ok(user);
+        }
     }
 }

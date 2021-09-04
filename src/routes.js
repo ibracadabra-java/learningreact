@@ -5,6 +5,7 @@ import {LoginContainer} from './components/LoginContainer'
 import ContainerComponent from './components/ContainerComponent'
 import { Task } from './components/Task';
 import { NewTask } from './components/NewTask';
+import {User} from './components/User'
 
 export function Router() {
     return useRoutes([
@@ -14,7 +15,8 @@ export function Router() {
           children: [
             { path: '/', element: <Navigate to="/dashboard/tareas" replace /> },
             { path: 'tareas', element: <Task /> }, 
-            { path: 'newtask', element: <NewTask /> },           
+            { path: 'newtask', element: <NewTask /> },
+            { path: 'user', element: <User /> }           
           ]
         },
         {
